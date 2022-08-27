@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../esm/index.js"],
+  "sourcesContent": ["import ipRegex from '@esm2cjs/ip-regex';\n\nexport function isIP(string) {\n\treturn ipRegex({exact: true}).test(string);\n}\n\nexport function isIPv6(string) {\n\treturn ipRegex.v6({exact: true}).test(string);\n}\n\nexport function isIPv4(string) {\n\treturn ipRegex.v4({exact: true}).test(string);\n}\n\nexport function ipVersion(string) {\n\treturn isIP(string) ? (isIPv6(string) ? 6 : 4) : undefined;\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,sBAAoB;AAEb,SAAS,KAAK,QAAQ;AAC5B,aAAO,gBAAAA,SAAQ,EAAC,OAAO,KAAI,CAAC,EAAE,KAAK,MAAM;AAC1C;AAEO,SAAS,OAAO,QAAQ;AAC9B,SAAO,gBAAAA,QAAQ,GAAG,EAAC,OAAO,KAAI,CAAC,EAAE,KAAK,MAAM;AAC7C;AAEO,SAAS,OAAO,QAAQ;AAC9B,SAAO,gBAAAA,QAAQ,GAAG,EAAC,OAAO,KAAI,CAAC,EAAE,KAAK,MAAM;AAC7C;AAEO,SAAS,UAAU,QAAQ;AACjC,SAAO,KAAK,MAAM,IAAK,OAAO,MAAM,IAAI,IAAI,IAAK;AAClD;",
+  "names": ["ipRegex"]
+}
