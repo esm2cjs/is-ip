@@ -1,63 +1,49 @@
-# is-ip
+# @esm2cjs/is-ip
 
-> Check if a string is an IP address
-
-If you only need this for Node.js and don't care about browser support, you may want to use [`net.isIP`](https://nodejs.org/api/net.html#net_net_isip_input) instead. Note that it returns an integer instead of a boolean.
+This is a fork of https://github.com/sindresorhus/is-ip, but automatically patched to support ESM **and** CommonJS, unlike the original repository.
 
 ## Install
 
-```sh
-npm install is-ip
+You can use an npm alias to install this package under the original name:
+
+```
+npm i is-ip@npm:@esm2cjs/is-ip
+```
+
+```jsonc
+// package.json
+"dependencies": {
+    "is-ip": "npm:@esm2cjs/is-ip"
+}
+```
+
+but `npm` might dedupe this incorrectly when other packages depend on the replaced package. If you can, prefer using the scoped package directly:
+
+```
+npm i @esm2cjs/is-ip
+```
+
+```jsonc
+// package.json
+"dependencies": {
+    "@esm2cjs/is-ip": "^ver.si.on"
+}
 ```
 
 ## Usage
 
 ```js
-import {isIP, isIPv4} from 'is-ip';
+// Using ESM import syntax
+import { isIP, isIPv4 } from "@esm2cjs/is-ip";
 
-isIP('1:2:3:4:5:6:7:8');
-//=> true
-
-isIP('192.168.0.1');
-//=> true
-
-isIPv4('1:2:3:4:5:6:7:8');
-//=> false
+// Using CommonJS require()
+const { isIP, isIPv4 } = require("@esm2cjs/is-ip");
 ```
 
-## API
+For more details, please see the original [repository](https://github.com/sindresorhus/is-ip).
 
-### isIP(string)
+## Sponsoring
 
-Check if `string` is IPv6 or IPv4.
+To support my efforts in maintaining the ESM/CommonJS hybrid, please sponsor [here](https://github.com/sponsors/AlCalzone).
 
-### isIPv6(string)
-
-Check if `string` is IPv6.
-
-### isIPv4(string)
-
-Check if `string` is IPv4.
-
-### ipVersion(string)
-
-Returns `6` if `string` is IPv6, `4` if `string` is IPv4, or `undefined` if `string` is neither.
-
-```js
-import {ipVersion} from 'is-ip';
-
-ipVersion('1:2:3:4:5:6:7:8');
-//=> 6
-
-ipVersion('192.168.0.1');
-//=> 4
-
-ipVersion('abc');
-//=> undefined
-```
-
-## Related
-
-- [ip-regex](https://github.com/sindresorhus/ip-regex) - Regular expression for matching IP addresses
-- [is-cidr](https://github.com/silverwind/is-cidr) - Check if a string is an IP address in CIDR notation
-- [cidr-regex](https://github.com/silverwind/cidr-regex) - Regular expression for matching IP addresses in CIDR notation
+To support the original author of the module, please sponsor [here](https://github.com/sindresorhus/is-ip).
